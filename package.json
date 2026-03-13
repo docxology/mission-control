@@ -1,7 +1,7 @@
 {
   "name": "mission-control",
   "version": "2.0.0",
-  "description": "OpenClaw Mission Control — open-source agent orchestration dashboard",
+  "description": "OpenClaw Mission Control \u2014 open-source agent orchestration dashboard",
   "scripts": {
     "verify:node": "node scripts/check-node-version.mjs",
     "dev": "pnpm run verify:node && next dev --hostname 127.0.0.1 --port ${PORT:-3000}",
@@ -83,6 +83,10 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "vue-demi",
       "better-sqlite3"
     ]
   }
