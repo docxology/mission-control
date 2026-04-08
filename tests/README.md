@@ -1,67 +1,81 @@
-# E2E Tests
+<!-- readme: curated -->
 
-Playwright end-to-end specs for Mission Control API and UI.
+# tests
 
-## Running
+**Version**: v0.1.0 | **Status**: Active | **Last Updated**: April 2026
 
-```bash
-# Start the dev server first (or let Playwright auto-start via reuseExistingServer)
-pnpm dev --hostname 127.0.0.1 --port 3005
+## Overview
 
-# Run all tests
-pnpm test:e2e
+Test files and validation suites.
 
-# Run offline OpenClaw harness (no OpenClaw install required)
-pnpm test:e2e:openclaw
+Agent-oriented inventory and contracts: [../../../../../../AGENTS.md](../../../../../../AGENTS.md).
 
-# Run a specific spec
-pnpm exec playwright test tests/tasks-crud.spec.ts
-```
+## Directory Contents
+- `README.md` – File
+- `SPEC.md` – File
+- `actor-identity-hardening.spec.ts` – File
+- `agent-api-keys.spec.ts` – File
+- `agent-attribution.spec.ts` – File
+- `agent-comms.spec.ts` – File
+- `agent-costs.spec.ts` – File
+- `agent-diagnostics.spec.ts` – File
+- `agent-evals.spec.ts` – File
+- `agent-optimize.spec.ts` – File
+- `agent-self-register.spec.ts` – File
+- `agents-crud.spec.ts` – File
+- `alerts-crud.spec.ts` – File
+- `api-index.spec.ts` – File
+- `auth-guards.spec.ts` – File
+- `channels-api.spec.ts` – File
+- `chat-session-prefs.spec.ts` – File
+- `cron-operations.spec.ts` – File
+- `csrf-validation.spec.ts` – File
+- `delete-body.spec.ts` – File
+- `device-identity.spec.ts` – File
+- `device-management.spec.ts` – File
+- `diagnostics-api.spec.ts` – File
+- `direct-cli.spec.ts` – File
+- `docs-knowledge.spec.ts` – File
+- `exec-approval-allowlist.spec.ts` – File
+- `fixtures/` – Subdirectory
+- `gateway-config.spec.ts` – File
+- `gateway-connect.spec.ts` – File
+- `github-sync.spec.ts` – File
+- `helpers.ts` – File
+- `injection-guard-endpoints.spec.ts` – File
+- `legacy-cookie-removed.spec.ts` – File
+- `limit-caps.spec.ts` – File
+- `local-agent-sync.spec.ts` – File
+- `login-flow.spec.ts` – File
+- `memory-knowledge.spec.ts` – File
+- `mentions.spec.ts` – File
+- `notifications.spec.ts` – File
+- `onboarding-api.spec.ts` – File
+- `openapi.spec.ts` – File
+- `openclaw-harness.spec.ts` – File
+- `project-agents.spec.ts` – File
+- `projects-crud.spec.ts` – File
+- `quality-review.spec.ts` – File
+- `rate-limiting.spec.ts` – File
+- `search-and-export.spec.ts` – File
+- `security-audit.spec.ts` – File
+- `security-scan-api.spec.ts` – File
+- `session-controls.spec.ts` – File
+- `sessions-continue.spec.ts` – File
+- `skills-crud.spec.ts` – File
+- `skills-registry.spec.ts` – File
+- `task-comments.spec.ts` – File
+- `task-outcomes.spec.ts` – File
+- `task-queue.spec.ts` – File
+- `task-regression.spec.ts` – File
+- `tasks-crud.spec.ts` – File
+- `tenant-workspaces.spec.ts` – File
+- `timing-safe-auth.spec.ts` – File
+- `user-management.spec.ts` – File
+- `webhooks-crud.spec.ts` – File
+- `workflows-crud.spec.ts` – File
+- `workload-signals.spec.ts` – File
 
-## Test Environment
-
-Tests require `.env.local` with:
-- `API_KEY=test-api-key-e2e-12345`
-- `MC_DISABLE_RATE_LIMIT=1` (bypasses mutation/read rate limits, keeps login rate limit active)
-
-## OpenClaw Offline Harness
-
-The harness runs Mission Control against fixture data and mock binaries/gateway:
-- fixtures: `tests/fixtures/openclaw/`
-- mock CLI: `scripts/e2e-openclaw/bin/{openclaw,clawdbot}`
-- mock gateway: `scripts/e2e-openclaw/mock-gateway.mjs`
-
-Profiles:
-- `pnpm test:e2e:openclaw:local` - local mode (gateway not running)
-- `pnpm test:e2e:openclaw:gateway` - gateway mode (mock gateway running)
-
-## Spec Files
-
-### Security & Auth
-- `auth-guards.spec.ts` — All API routes return 401 without auth
-- `csrf-validation.spec.ts` — CSRF origin header validation
-- `legacy-cookie-removed.spec.ts` — Old cookie format rejected
-- `login-flow.spec.ts` — Login, session, redirect lifecycle
-- `rate-limiting.spec.ts` — Login brute-force protection
-- `timing-safe-auth.spec.ts` — Constant-time API key comparison
-
-### CRUD Lifecycle
-- `tasks-crud.spec.ts` — Tasks POST/GET/PUT/DELETE with filters, Aegis gate
-- `agents-crud.spec.ts` — Agents CRUD, lookup by name/id, admin-only delete
-- `task-comments.spec.ts` — Threaded comments on tasks
-- `workflows-crud.spec.ts` — Workflow template CRUD
-- `webhooks-crud.spec.ts` — Webhooks with secret masking and regeneration
-- `alerts-crud.spec.ts` — Alert rule CRUD with full lifecycle
-- `user-management.spec.ts` — User admin CRUD
-
-### Features
-- `notifications.spec.ts` — Notification delivery and read tracking
-- `quality-review.spec.ts` — Quality reviews with batch lookup
-- `search-and-export.spec.ts` — Global search, data export, activity feed
-
-### Infrastructure
-- `limit-caps.spec.ts` — Endpoint limit caps enforced
-- `delete-body.spec.ts` — DELETE body standardization
-
-### Shared
-- `helpers.ts` — Factory functions (`createTestTask`, `createTestAgent`, etc.) and cleanup helpers
+## Navigation
+- **Parent Directory**: [app](../README.md)
+- **Project Root**: ../../../../../../README.md
